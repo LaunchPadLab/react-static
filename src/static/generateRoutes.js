@@ -59,7 +59,7 @@ ${
 
 ${
     process.env.NODE_ENV === 'production'
-      ? productionTemplates
+      ? developmentTemplates
       : developmentTemplates
   }
 
