@@ -14,7 +14,6 @@ import universal, { setHasBabelPlugin } from 'react-universal-component'
   const developmentImports = ''
 
   const productionTemplates = `
-setHasBabelPlugin()
 
 const universalOptions = {
   loading: () => null,
@@ -59,7 +58,7 @@ ${
 
 ${
     process.env.NODE_ENV === 'production'
-      ? developmentTemplates
+      ? productionTemplates
       : developmentTemplates
   }
 
