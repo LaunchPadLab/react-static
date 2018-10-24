@@ -29,9 +29,9 @@ ${templates
         paths.DIST,
         path.resolve(paths.ROOT, template)
       )
-      return `const t_${index} = universal(import('${slash(
+      return `const t_${index} = require('${slash(
         templatePath
-      )}'), universalOptions)`
+      )}').default`
     })
     .join('\n')}
 `
