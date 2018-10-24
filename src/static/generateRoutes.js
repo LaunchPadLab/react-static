@@ -29,9 +29,7 @@ ${templates
         paths.DIST,
         path.resolve(paths.ROOT, template)
       )
-      return `const t_${index} = require('${slash(
-        templatePath
-      )}').default`
+      return `const t_${index} = require('${slash(templatePath)}').default`
     })
     .join('\n')}
 `
