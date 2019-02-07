@@ -3,15 +3,20 @@ import { Redirect as ReactRouterRedirect } from 'react-router-dom'
 import Head from 'react-helmet'
 //
 
+function join(a, b) {
+  var trimmedA = a.endsWith('/') ? a.slice(0, -1) : a;
+  var trimmedB = b.startsWith('/') ? b.slice(1) : b;
+  return trimmedA + '/' + trimmedB;
+}
+
+
 export default class Redirect extends React.Component {
   render() {
     const { to, delay = 0, fromPath, ...rest } = this.props
     if (typeof document === 'undefined') {
       let resolvedTo = typeof to === 'object' ? to.pathname : to
       if (!resolvedTo.includes('//')) {
-        resolvedTo = `${process.env.REACT_STATIC_PUBLIC_PATH}${
-          resolvedTo === '/' ? '' : resolvedTo
-        }`
+        resolvedTo = join(process.env.REACT_STATIC_PUBLIC_PATH, resolvedTo)
       }
       return (
         // ReactRouterRedirect
