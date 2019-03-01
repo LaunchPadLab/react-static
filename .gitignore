@@ -18,7 +18,7 @@ dist
 docs-dist
 examples/*/gitignore
 examples/*/yarn.lock
-lib
+# lib
 node_modules
 npm-debug.log*
 package-lock.json
