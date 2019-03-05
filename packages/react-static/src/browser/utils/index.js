@@ -204,9 +204,11 @@ export function getBasePath() {
     : process.env.REACT_STATIC_BASE_PATH
 }
 
-function buildBaseURL (baseLocation) {
-  const portPostfix = baseLocation.port ? `:${ baseLocation.port }` : ''
-  return `${baseLocation.protocol}//${baseLocation.hostname}${portPostfix}${baseLocation.pathname}`
+function buildBaseURL(baseLocation) {
+  const portPostfix = baseLocation.port ? `:${baseLocation.port}` : ''
+  return `${baseLocation.protocol}//${baseLocation.hostname}${portPostfix}${
+    baseLocation.pathname
+  }`
 }
 
 export function isPrefetchableRoute(path) {
