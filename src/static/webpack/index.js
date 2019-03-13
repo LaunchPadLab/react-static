@@ -252,8 +252,7 @@ export async function startDevServer({ config }) {
   const socket = io()
   socket.listen(messagePort)
 
-  resolvedReloadRoutes = async (paths, data) => {
-    await prepareRoutes(
+  resolvedReloadRoutes = async (paths, data) => prepareRoutes(
       { config, opts: { dev: true, data }, silent: true },
       async config => {
         if (!paths) {
@@ -264,7 +263,6 @@ export async function startDevServer({ config }) {
         socket.emit('message', { type: 'reloadRoutes', paths })
       }
     )
-  }
 
   await new Promise((resolve, reject) => {
     devServer.listen(port, null, err => {
